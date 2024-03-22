@@ -11,5 +11,12 @@ Route::get('/user', function (Request $request) {
 Route::controller(DifficultyController::class)->group(function ()
 {
 Route::get('/difficulties', 'getAll');
-Route::get('/difficulties/{id}', 'getSingle');
+Route::get('/difficulties/{id}', 'find');
+});
+
+Route::controller(\App\Http\Controllers\LanguageController::class)->group(function ()
+{
+    Route::get('/languages', 'getAll');
+    Route::get('/languages/{id}', 'find');
+
 });

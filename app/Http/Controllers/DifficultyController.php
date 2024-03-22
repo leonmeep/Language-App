@@ -3,20 +3,29 @@
 namespace App\Http\Controllers;
 
 use App\Models\Difficulty;
+use App\Services\JsonResponseService;
 use Illuminate\Http\Request;
 
 class DifficultyController extends Controller
 {
+    public function __construct(JsonResponseService $responseService)
+    {
+        $this->responseService = $responseService;
+    }
     public function getAll()
     {
         $difficulties = Difficulty::all();
         return $difficulties;
     }
 
-    public function getSingle(int $id)
+    public function find(int $id)
     {
-        $difficult = Difficulty::find($id);
-        return $difficult;
+        return response()->json($this->responseService->getFormat(
+            'Difficulty returned',
+            Difficulty::with([
+                'languages:id,name,difficulty_id'
+            ])->find($id)
+        ));
 
     }
 

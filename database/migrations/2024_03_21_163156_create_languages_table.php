@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('description', 500)->nullable();
             $table->integer('spoken_by')->nullable();
+            $table->foreignId('difficulty_id');
             $table->timestamps();
         });
     }

@@ -14,13 +14,18 @@ class LanguageController extends Controller
     {
         $this->responseService = $responseService;
     }
+
+    public function getAll()
+    {
+        $languages = Language::all();
+        return $languages;
+    }
+
     public function find(int $id)
     {
         return response()->json($this->responseService->getFormat(
             'Language Returned.',
-            Language::with([
-                'difficulties:id, name, language_id', 'friends:id, name, languages_id'
-            ])->find($id)
+            Language::find($id)
         ));
 
     }
