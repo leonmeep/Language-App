@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Language;
 use App\Services\JsonResponseService;
-use Illuminate\Http\Request;
 
 class LanguageController extends Controller
 {
@@ -18,6 +17,7 @@ class LanguageController extends Controller
     public function getAll()
     {
         $languages = Language::all();
+
         return $languages;
     }
 
