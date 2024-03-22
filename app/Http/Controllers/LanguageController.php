@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class LanguageController extends Controller
 {
-    //
+    public function find(int $id)
+    {
+
+    }
 }
