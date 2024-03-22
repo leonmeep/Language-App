@@ -13,5 +13,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             DifficultySeeder::class
         ]);
+        $this->call([
+            LanguageSeeder::class
+        ]);
     }
 }
