@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Language extends Model
 {
@@ -20,5 +21,10 @@ class Language extends Model
     {
         return $this->belongsTo(Continent::class);
 
+    }
+
+    public function friends(): BelongsToMany
+    {
+        return $this->belongsToMany(Friend::class);
     }
 }

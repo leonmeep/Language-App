@@ -25,3 +25,9 @@ Route::controller(\App\Http\Controllers\ContinentController::class)->group(funct
     Route::get('/continents/{id}', 'find');
 
 });
+
+Route::controller(\App\Http\Controllers\FriendController::class)->group(function ()
+{
+    Route::get('/friends', 'getAll');
+    Route::get('/friends/{id}', 'find');
+});
