@@ -24,14 +24,10 @@ class DifficultyController extends Controller
         return response()->json($this->responseService->getFormat(
             'Difficulty returned',
             Difficulty::with([
-                'languages:id,name,difficulty_id',
+                'languages:id,difficulty_id',
             ])->find($id)
         ));
 
     }
 
-    public function create()
-    {
-
-    }
 }

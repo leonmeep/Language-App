@@ -11,13 +11,15 @@ class Language extends Model
 {
     use HasFactory;
 
+    public $hidden = ['created_at', 'updated_at', 'spoken_by', 'pivot', 'difficulty_id', 'continent_id', 'id'];
+
     public function difficulty(): BelongsTo
     {
         return $this->belongsTo(Difficulty::class);
 
     }
 
-    public function continent(): BelongsTo
+    public function continents(): BelongsTo
     {
         return $this->belongsTo(Continent::class);
 

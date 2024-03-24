@@ -12,7 +12,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('friend_id');
             $table->foreignId('language_id');
-            $table->timestamps();
         });
     }
 
